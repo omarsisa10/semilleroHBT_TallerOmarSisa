@@ -1,14 +1,23 @@
 package com.hbt.semillero.dto;
 
 import java.io.Serializable;
-
+/**
+ * DTO de la clase factura implementa a serializable
+ * @author Sisa
+ *
+ */
 public class FacturaDetalleDTO implements Serializable {
+	/**
+	 * atributos de la clase factura
+	 */
 	private String detalleId;
 	private FacturaDTO factura;
 	private PlatoDTO plato;
 	private BebidaDTO bebida;
 	private int precioUnitario;
-		
+	/**
+	 * constructor
+	 */
 	public FacturaDetalleDTO(String detalleId, FacturaDTO factura, PlatoDTO plato, BebidaDTO bebida,
 	int precio_unitario) {
 		super();
@@ -18,9 +27,13 @@ public class FacturaDetalleDTO implements Serializable {
 		this.bebida = bebida;
 		this.precioUnitario = precio_unitario;
 	}
+	/**
+	 * constructor
+	 */
 	public FacturaDetalleDTO() {
 		super();
 	}
+	// GETTERS Y SETTERS *******
 	public String getDetalle_id() {
 		return detalleId;
 	}

@@ -32,7 +32,7 @@ public class Factura {
 	
 	@Column(name = "total")
 	private int total;
-
+	// GETTERS Y SETTERS *******
 	public int getFacturaId() {
 		return facturaId;
 	}

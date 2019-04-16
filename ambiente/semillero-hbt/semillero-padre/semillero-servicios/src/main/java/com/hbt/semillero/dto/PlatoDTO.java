@@ -1,16 +1,27 @@
 package com.hbt.semillero.dto;
 
 import java.io.Serializable;
-
+/**
+ * DTO de la clase plato implementa a serializable
+ * @author Sisa
+ *
+ */
 public class PlatoDTO implements Serializable{
+	/**
+	 * atributos de la clase plato
+	 */
 	private int platoId;
 	private String platoNombre;
 	private int precio;
-		
+	/**
+	 * constructor
+	 */
 	public PlatoDTO() {
 		super();
 	}
-	
+	/**
+	 * constructor
+	 */
 	public PlatoDTO(int platoId, String platoNombre, int precio) {
 		super();
 		this.platoId = platoId;
@@ -18,7 +29,7 @@ public class PlatoDTO implements Serializable{
 		this.precio = precio;
 	}
 	
-
+	// GETTERS Y SETTERS *******
 	public int getPlatoId() {
 		return platoId;
 	}
