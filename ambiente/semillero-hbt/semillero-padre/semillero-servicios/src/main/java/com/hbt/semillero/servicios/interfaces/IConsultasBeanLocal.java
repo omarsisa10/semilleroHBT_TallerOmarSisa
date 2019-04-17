@@ -7,6 +7,7 @@ import javax.ejb.Local;
 import com.hbt.semillero.dto.BebidaDTO;
 import com.hbt.semillero.dto.ClienteDTO;
 import com.hbt.semillero.dto.FacturaDTO;
+import com.hbt.semillero.dto.FacturaDetalleDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
@@ -39,5 +40,7 @@ public interface IConsultasBeanLocal {
 	public ResultadoDTO eliminarBebida(int idBebida);
 	
 	public List<FacturaDetalle> consultarTodasFacturasDetalles();
+	public ResultadoDTO crearFacturasDetalles(FacturaDetalleDTO facturaDetalleDTO);
+	public ResultadoDTO eliminarFacturasDetalles(String detalleId);
 	
 }

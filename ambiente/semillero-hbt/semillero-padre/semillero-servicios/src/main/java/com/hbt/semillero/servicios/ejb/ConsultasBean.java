@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.hbt.semillero.dto.BebidaDTO;
 import com.hbt.semillero.dto.ClienteDTO;
 import com.hbt.semillero.dto.FacturaDTO;
+import com.hbt.semillero.dto.FacturaDetalleDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
@@ -90,6 +91,21 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	}
 	
 	/**
+	 * metodo  que crear facturasDetalle
+	 */
+	@Override
+	public ResultadoDTO crearFacturasDetalles(FacturaDetalleDTO facturaDetalleDTO) {
+		try {
+			FacturaDetalle facturaDetalle = asignarAtributosFacturasDetalles(facturaDetalleDTO);		
+			entityManager.persist(facturaDetalle);			
+		} catch (Exception e) {
+			return new ResultadoDTO(false, e.getMessage());
+		}
+
+		return new ResultadoDTO(true, "facturaDetalle Creada de forma exitosa");
+	}
+	
+	/**
 	 * metodo para crear clientes
 	 */
 	@Override
@@ -144,6 +160,20 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		cliente.setClienteNombre(clienteDTO.getClienteNombre());				
 		return cliente;
 	}
+	/**
+	 * metodo asgignar atributos a FacturasDetalle
+	 * @param bebidaDTO
+	 * @return
+	 */
+	private FacturaDetalle asignarAtributosFacturasDetalles(FacturaDetalleDTO facturaDetalleDTO) {
+		FacturaDetalle facturaDetalle = new FacturaDetalle();
+		facturaDetalle.setDetalleId(facturaDetalleDTO.getDetalleId());
+		facturaDetalle.setFactura(facturaDetalleDTO.getFactura());
+		facturaDetalle.setPlato(facturaDetalleDTO.getPlato());
+		facturaDetalle.setBebida(facturaDetalleDTO.getBebida());
+		facturaDetalle.setPrecioUnitario(facturaDetalleDTO.getPrecioUnitario());
+		return facturaDetalle;
+	}
 	
 	/**
 	 * metodo asgignar atributos a una Factura
@@ -170,5 +200,17 @@ public class ConsultasBean implements IConsultasBeanLocal{
 			return new ResultadoDTO(false, e.getMessage());
 		}
 	}
+	/**
+	 * metodo para eliminar una bebida ingresando por parametro el id detalleFactura
+	 */	
+		@Override
+		public ResultadoDTO eliminarFacturasDetalles(String detalleId) {
+			try {
+				entityManager.remove(entityManager.find(FacturaDetalle.class, detalleId));
+				return new ResultadoDTO(true, "FacturaDetalle Eliminada de froma exitosa");
+			} catch (Exception e) {
+				return new ResultadoDTO(false, e.getMessage());
+			}
+		}
 
 }

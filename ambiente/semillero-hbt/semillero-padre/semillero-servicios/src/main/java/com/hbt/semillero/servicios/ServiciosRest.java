@@ -159,7 +159,7 @@ public class ServiciosRest {
 
 	/**
 	 * metodo para crear Factura
-	 * @param bebidaDTO
+	 * @param FactraDTO
 	 * @return
 	 */
 	@POST
@@ -167,6 +167,17 @@ public class ServiciosRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ResultadoDTO crearFactura(FacturaDTO facturaDTO) {
 		return consultasBean.crearFacturas(facturaDTO);
+	}
+	/**
+	 * metodo para crear Facturadetalle
+	 * @param bebidaDTO
+	 * @return
+	 */
+	@POST
+	@Path("/crearFacturaDetalle")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO crearFacturaDetalle(FacturaDetalleDTO facturaDetalleDTO) {
+		return consultasBean.crearFacturasDetalles(facturaDetalleDTO);
 	}
 
 	// Metodo construir un cliente
@@ -224,6 +235,17 @@ public class ServiciosRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ResultadoDTO eliminarBebida(@QueryParam("idBebida") int idBebida) {
 		return consultasBean.eliminarBebida(idBebida);
+	}
+	/**
+	 * Permite eliminar un bebida por Id.
+	 * @param idBebida
+	 * @return
+	 */
+	@GET
+	@Path("/eliminarFacturaDetalle")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO eliminarFacturaDetalle(@QueryParam("detalleId") String detalleId) {
+		return consultasBean.eliminarFacturasDetalles(detalleId);
 	}
 
 
