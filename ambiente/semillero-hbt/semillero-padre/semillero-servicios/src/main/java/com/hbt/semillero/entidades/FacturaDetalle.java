@@ -25,16 +25,16 @@ public class FacturaDetalle {
 	
 	// lazy perezoso solo trae la de la misma relacion
 	// eager  trae todo
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "factura_id")
 	private Factura factura;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "plato_id")
 	private Plato plato;
 	
-	@ManyToOne(fetch = FetchType.LAZY)  
+	@ManyToOne(fetch = FetchType.EAGER)  
 	@JoinColumn(name = "bebida_id")
 	private Bebida bebida;
 	

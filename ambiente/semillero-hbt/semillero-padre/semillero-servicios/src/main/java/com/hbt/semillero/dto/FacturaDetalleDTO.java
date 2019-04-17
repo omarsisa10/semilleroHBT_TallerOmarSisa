@@ -1,6 +1,10 @@
 package com.hbt.semillero.dto;
 
 import java.io.Serializable;
+
+import com.hbt.semillero.entidades.Bebida;
+import com.hbt.semillero.entidades.Factura;
+import com.hbt.semillero.entidades.Plato;
 /**
  * DTO de la clase factura implementa a serializable
  * @author Sisa
@@ -11,58 +15,91 @@ public class FacturaDetalleDTO implements Serializable {
 	 * atributos de la clase factura
 	 */
 	private String detalleId;
-	private FacturaDTO factura;
-	private PlatoDTO plato;
-	private BebidaDTO bebida;
+	private Factura factura;
+	private Plato plato;
+	private Bebida bebida;
 	private int precioUnitario;
 	/**
-	 * constructor
+	 * Constructor con todos los parametros
+	 * @param detalleId
+	 * @param factura
+	 * @param plato
+	 * @param bebida
+	 * @param precioUnitario
 	 */
-	public FacturaDetalleDTO(String detalleId, FacturaDTO factura, PlatoDTO plato, BebidaDTO bebida,
-	int precio_unitario) {
+	public FacturaDetalleDTO(String detalleId, Factura factura, Plato plato, Bebida bebida, int precioUnitario) {
 		super();
 		this.detalleId = detalleId;
 		this.factura = factura;
 		this.plato = plato;
 		this.bebida = bebida;
-		this.precioUnitario = precio_unitario;
+		this.precioUnitario = precioUnitario;
 	}
 	/**
-	 * constructor
+	 * constructor sin parametros
 	 */
 	public FacturaDetalleDTO() {
 		super();
 	}
-	// GETTERS Y SETTERS *******
-	public String getDetalle_id() {
+	/**
+	 * @return the detalleId
+	 */
+	public String getDetalleId() {
 		return detalleId;
 	}
-	public void setDetalle_id(String detalle_id) {
-		this.detalleId = detalle_id;
+	/**
+	 * @param detalleId the detalleId to set
+	 */
+	public void setDetalleId(String detalleId) {
+		this.detalleId = detalleId;
 	}
-	public FacturaDTO getFactura() {
+	/**
+	 * @return the factura
+	 */
+	public Factura getFactura() {
 		return factura;
 	}
-	public void setFactura(FacturaDTO factura) {
+	/**
+	 * @param factura the factura to set
+	 */
+	public void setFactura(Factura factura) {
 		this.factura = factura;
 	}
-	public PlatoDTO getPlato() {
+	/**
+	 * @return the plato
+	 */
+	public Plato getPlato() {
 		return plato;
 	}
-	public void setPlato(PlatoDTO plato) {
+	/**
+	 * @param plato the plato to set
+	 */
+	public void setPlato(Plato plato) {
 		this.plato = plato;
 	}
-	public BebidaDTO getBebida() {
+	/**
+	 * @return the bebida
+	 */
+	public Bebida getBebida() {
 		return bebida;
 	}
-	public void setBebida(BebidaDTO bebida) {
+	/**
+	 * @param bebida the bebida to set
+	 */
+	public void setBebida(Bebida bebida) {
 		this.bebida = bebida;
 	}
-	public int getPrecio_unitario() {
+	/**
+	 * @return the precioUnitario
+	 */
+	public int getPrecioUnitario() {
 		return precioUnitario;
 	}
-	public void setPrecio_unitario(int precio_unitario) {
-		this.precioUnitario = precio_unitario;
+	/**
+	 * @param precioUnitario the precioUnitario to set
+	 */
+	public void setPrecioUnitario(int precioUnitario) {
+		this.precioUnitario = precioUnitario;
 	}
 	
 

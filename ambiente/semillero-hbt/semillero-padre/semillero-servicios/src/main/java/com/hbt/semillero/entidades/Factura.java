@@ -23,7 +23,7 @@ public class Factura {
 	@Column(name = "factura_id")	
 	private int facturaId;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	

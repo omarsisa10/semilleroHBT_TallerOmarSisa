@@ -12,6 +12,7 @@ import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
 import com.hbt.semillero.entidades.Factura;
+import com.hbt.semillero.entidades.FacturaDetalle;
 import com.hbt.semillero.servicios.interfaces.IConsultasBeanLocal;
 /**
  * clase consultas bean  es un stateless sin estado
@@ -46,6 +47,21 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	public List<Bebida> consultarBebidas() {
 		return entityManager.createQuery("select beb FROM Bebida beb").getResultList();			
 	}
+	
+	/**
+	 * metodo  que consulta todas las Facturas
+	 */
+	@Override
+	public List<Factura> consultarTodasFacturas() {
+		return entityManager.createQuery("select fac FROM Factura fac").getResultList();			
+	}
+	/**
+	 * metodo  que consulta todas las FacturasDetalles
+	 */
+	@Override
+	public List<FacturaDetalle> consultarTodasFacturasDetalles() {
+		return entityManager.createQuery("select facDe FROM FacturaDetalle facDe").getResultList();			
+	}
 
 	/**
 	 * metodo  que consulta todas las facturas registradas a un cliente
@@ -75,7 +91,7 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		return bebida;
 	}
 
-	/**
+/**
  * metodo para eliminar una bebida ingresando por parametro el id de la bebida
  */	
 	@Override

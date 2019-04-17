@@ -14,10 +14,12 @@ import javax.ws.rs.core.MediaType;
 import com.hbt.semillero.dto.BebidaDTO;
 import com.hbt.semillero.dto.ClienteDTO;
 import com.hbt.semillero.dto.FacturaDTO;
+import com.hbt.semillero.dto.FacturaDetalleDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
 import com.hbt.semillero.entidades.Factura;
+import com.hbt.semillero.entidades.FacturaDetalle;
 import com.hbt.semillero.servicios.interfaces.IConsultasBeanLocal;
 
 @Path("/ServiciosRest")
@@ -79,7 +81,39 @@ public class ServiciosRest {
 		}
 		return retorno;
 	}
-	
+	/**
+	 * metodo para consultar Todas las Facturas
+	 * @return
+	 */
+		@GET
+		@Path("/consultarTodasFacturas")
+		@Produces(MediaType.APPLICATION_JSON)
+		public List<FacturaDTO> consultarTodasFacturas() {
+			List<Factura> facturas = consultasBean.consultarTodasFacturas();
+			List<FacturaDTO> retorno = new ArrayList<FacturaDTO>();
+			for (Factura factura : facturas) {
+				FacturaDTO facturaDTO = construirFacturaDTO(factura);
+				retorno.add(facturaDTO);
+			}
+			return retorno;
+		}
+		
+		/**
+		 * metodo para consultar Todas las FacturasDetalles
+		 * @return
+		 */
+			@GET
+			@Path("/consultarTodasFacturasDetalles")
+			@Produces(MediaType.APPLICATION_JSON)
+			public List<FacturaDetalleDTO> consultarTodasFacturasDetalles() {
+				List<FacturaDetalle> facturasDetalles = consultasBean.consultarTodasFacturasDetalles();
+				List<FacturaDetalleDTO> retorno = new ArrayList<FacturaDetalleDTO>();
+				for (FacturaDetalle facturaDetalle : facturasDetalles) {
+					FacturaDetalleDTO facturaDetalleDTO = construirFacturaDetalleDTO(facturaDetalle);
+					retorno.add(facturaDetalleDTO);
+				}
+				return retorno;
+			}	
 	/**
 	 * metodo para crear Bebidas
 	 * @param bebidaDTO
@@ -118,6 +152,17 @@ public class ServiciosRest {
 		facturaDTO.setTotal(factura.getTotal());
 		return facturaDTO;
 	}
+	// Metodo construir todas las  FacturaDetalleDTO
+	private FacturaDetalleDTO construirFacturaDetalleDTO(FacturaDetalle facturaDetalle) {
+		FacturaDetalleDTO facturaDetalleDTO = new FacturaDetalleDTO();
+		facturaDetalleDTO.setDetalleId(facturaDetalle.getDetalleId());
+		facturaDetalleDTO.setFactura(facturaDetalle.getFactura());
+		facturaDetalleDTO.setPlato(facturaDetalle.getPlato());
+		facturaDetalleDTO.setBebida(facturaDetalle.getBebida());
+		facturaDetalleDTO.setPrecioUnitario(facturaDetalle.getPrecioUnitario());	
+		return facturaDetalleDTO;
+	}
+	
 	/**
 	 * Permite eliminar un bebida por Id.
 	 * @param idBebida

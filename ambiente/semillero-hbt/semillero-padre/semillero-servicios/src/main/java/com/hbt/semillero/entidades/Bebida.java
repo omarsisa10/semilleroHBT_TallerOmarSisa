@@ -3,7 +3,6 @@ package com.hbt.semillero.entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 /**
@@ -19,7 +18,7 @@ public class Bebida {
 	/**
 	 * atributos de la entidad bebida
 	 */
-	//@GeneratedValue(strategy=GenerationType.AUTO)  aaaaaaaa
+	//@GeneratedValue(strategy=GenerationType.AUTO) 
 	@Id
 	@Column(name = "bebida_id")
 	private int bebidaId;
