@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Factura {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "factura_id")	
 	private int facturaId;
 

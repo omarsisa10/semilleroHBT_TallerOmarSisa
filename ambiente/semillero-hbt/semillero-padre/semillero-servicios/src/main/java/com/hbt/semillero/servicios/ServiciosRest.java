@@ -15,11 +15,13 @@ import com.hbt.semillero.dto.BebidaDTO;
 import com.hbt.semillero.dto.ClienteDTO;
 import com.hbt.semillero.dto.FacturaDTO;
 import com.hbt.semillero.dto.FacturaDetalleDTO;
+import com.hbt.semillero.dto.PlatoDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
 import com.hbt.semillero.entidades.Factura;
 import com.hbt.semillero.entidades.FacturaDetalle;
+import com.hbt.semillero.entidades.Plato;
 import com.hbt.semillero.servicios.interfaces.IConsultasBeanLocal;
 
 @Path("/ServiciosRest")
@@ -44,6 +46,23 @@ public class ServiciosRest {
 		for (Cliente cliente : clientes) {
 			ClienteDTO clienteDTO = construirClienteDTO(cliente);
 			retorno.add(clienteDTO);
+		}
+		return retorno;
+	}
+	
+	/**
+	 * metodo para consultar todos los  platos
+	 * @return
+	 */
+	@GET
+	@Path("/consultarPlatos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<PlatoDTO> consultarPlatos() {
+		List<Plato> platos = consultasBean.consultarPlatos();
+		List<PlatoDTO> retorno = new ArrayList<PlatoDTO>();
+		for (Plato plato : platos) {
+			PlatoDTO platoDTO = construirPlatoDTO(plato);
+			retorno.add(platoDTO);
 		}
 		return retorno;
 	}
@@ -125,7 +144,30 @@ public class ServiciosRest {
 	public ResultadoDTO crearBebida(BebidaDTO bebidaDTO) {
 		return consultasBean.crearBebida(bebidaDTO);
 	}
+	
+	/**
+	 * metodo para crear cliente
+	 * @param bebidaDTO
+	 * @return
+	 */
+	@POST
+	@Path("/crearCliente")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO crearCliente(ClienteDTO clienteDTO) {
+		return consultasBean.crearClientes(clienteDTO);
+	}
 
+	/**
+	 * metodo para crear Factura
+	 * @param bebidaDTO
+	 * @return
+	 */
+	@POST
+	@Path("/crearFactura")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResultadoDTO crearFactura(FacturaDTO facturaDTO) {
+		return consultasBean.crearFacturas(facturaDTO);
+	}
 
 	// Metodo construir un cliente
 	private ClienteDTO construirClienteDTO(Cliente cliente) {
@@ -134,6 +176,15 @@ public class ServiciosRest {
 		clienteDTO.setClienteNombre(cliente.getClienteNombre());
 		return clienteDTO;
 	}
+	// Metodo construir un Plato
+		private PlatoDTO construirPlatoDTO(Plato plato) {
+			PlatoDTO platoDTO = new PlatoDTO();
+			platoDTO.setPlatoId(plato.getPlatoId());
+			platoDTO.setPlatoNombre(plato.getPlatoNombre());
+			platoDTO.setPrecio(plato.getPrecio());
+			platoDTO.setPlatoDescripcion(plato.getPlatoDescripcion());
+			return platoDTO;
+		}
 	// Metodo construir una bebida
 		private BebidaDTO construirBebidaDTO(Bebida bebida) {
 			BebidaDTO bebidaDTO = new BebidaDTO();

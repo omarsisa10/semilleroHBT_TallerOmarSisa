@@ -8,11 +8,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.hbt.semillero.dto.BebidaDTO;
+import com.hbt.semillero.dto.ClienteDTO;
+import com.hbt.semillero.dto.FacturaDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Bebida;
 import com.hbt.semillero.entidades.Cliente;
 import com.hbt.semillero.entidades.Factura;
 import com.hbt.semillero.entidades.FacturaDetalle;
+import com.hbt.semillero.entidades.Plato;
 import com.hbt.semillero.servicios.interfaces.IConsultasBeanLocal;
 /**
  * clase consultas bean  es un stateless sin estado
@@ -32,6 +35,14 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	public List<Cliente> consultarClientes() {
 		return entityManager.createQuery("select cli FROM Cliente cli").getResultList();		
 	}
+	
+	/**
+	 * metodo que consulta todos los platos 	
+	 */
+		@Override
+		public List<Plato> consultarPlatos() {
+			return entityManager.createQuery("select pla FROM Plato pla").getResultList();		
+		}
 /**
  * metodo  que consulta todas las facturas registradas a un cliente
  */
@@ -79,6 +90,36 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	}
 	
 	/**
+	 * metodo para crear clientes
+	 */
+	@Override
+	public ResultadoDTO crearClientes(ClienteDTO clienteDTO) {
+		try {
+			Cliente cliente = asignarAtributosCliente(clienteDTO);		
+			entityManager.persist(cliente);			
+		} catch (Exception e) {
+			return new ResultadoDTO(false, e.getMessage());
+		}
+
+		return new ResultadoDTO(true, "Cliente Creado de forma exitosa");
+	}
+	
+	/**
+	 * metodo para crear factura
+	 */
+	@Override
+	public ResultadoDTO crearFacturas(FacturaDTO facturaDTO) {
+		try {
+			Factura factura = asignarAtributosFactura(facturaDTO);		
+			entityManager.persist(factura);			
+		} catch (Exception e) {
+			return new ResultadoDTO(false, e.getMessage());
+		}
+
+		return new ResultadoDTO(true, "factura Creado de forma exitosa");
+	}
+	
+	/**
 	 * metodo asgignar atributos a una bebida crear una bebida
 	 * @param bebidaDTO
 	 * @return
@@ -91,6 +132,32 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		return bebida;
 	}
 
+	
+	/**
+	 * metodo asgignar atributos a un cliente
+	 * @param bebidaDTO
+	 * @return
+	 */
+	private Cliente asignarAtributosCliente(ClienteDTO clienteDTO) {
+		Cliente cliente = new Cliente();
+		cliente.setClienteID(clienteDTO.getClienteId());
+		cliente.setClienteNombre(clienteDTO.getClienteNombre());				
+		return cliente;
+	}
+	
+	/**
+	 * metodo asgignar atributos a una Factura
+	 * @param bebidaDTO
+	 * @return
+	 */
+	private Factura asignarAtributosFactura(FacturaDTO facturaDTO) {
+		Factura factura = new Factura();
+		factura.setFacturaId(facturaDTO.getFacturaId());
+		factura.setIva(facturaDTO.getIva());
+		factura.setTotal(facturaDTO.getTotal());
+		factura.setCliente(facturaDTO.getCliente());
+		return factura;
+	}
 /**
  * metodo para eliminar una bebida ingresando por parametro el id de la bebida
  */	

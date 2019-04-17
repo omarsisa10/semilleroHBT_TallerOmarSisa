@@ -16,20 +16,20 @@ import javax.persistence.Table;
 public class Cliente {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "cliente_id")	
-	private int clienteID;
+	private int clienteId;
 	
 	@Column(name = "cliente_nombre")
 	private String clienteNombre;
 
 	// GETTERS Y SETTERS *******
 	public int getClienteID() {
-		return clienteID;
+		return clienteId;
 	}
 
 	public void setClienteID(int clienteID) {
-		this.clienteID = clienteID;
+		this.clienteId = clienteID;
 	}
 
 	public String getClienteNombre() {
