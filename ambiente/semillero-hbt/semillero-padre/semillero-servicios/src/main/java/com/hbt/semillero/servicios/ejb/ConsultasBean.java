@@ -53,8 +53,8 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	@Override
 	public ResultadoDTO crearBebida(BebidaDTO bebidaDTO) {
 		try {
-			Bebida bebida = asignarAtributosBebida(bebidaDTO);
-			entityManager.persist(bebida);
+			Bebida bebida = asignarAtributosBebida(bebidaDTO);		
+			entityManager.persist(bebida);			
 		} catch (Exception e) {
 			return new ResultadoDTO(false, e.getMessage());
 		}

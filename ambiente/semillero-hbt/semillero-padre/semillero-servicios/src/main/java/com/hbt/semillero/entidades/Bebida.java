@@ -14,11 +14,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "BEBIDA")
 public class Bebida {
+	
+	private static final long serialVersionUID = 1L;
 	/**
 	 * atributos de la entidad bebida
 	 */
+	//@GeneratedValue(strategy=GenerationType.AUTO)  aaaaaaaa
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "bebida_id")
 	private int bebidaId;
 	

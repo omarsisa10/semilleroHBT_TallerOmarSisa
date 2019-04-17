@@ -88,19 +88,19 @@ public class ServiciosRest {
 	@POST
 	@Path("/crearBebida")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ResultadoDTO crearPersona(BebidaDTO bebidaDTO) {
+	public ResultadoDTO crearBebida(BebidaDTO bebidaDTO) {
 		return consultasBean.crearBebida(bebidaDTO);
 	}
 
 
-	// Metodo construir una cliente
+	// Metodo construir un cliente
 	private ClienteDTO construirClienteDTO(Cliente cliente) {
 		ClienteDTO clienteDTO = new ClienteDTO();
 		clienteDTO.setClienteId(cliente.getClienteID());
 		clienteDTO.setClienteNombre(cliente.getClienteNombre());
 		return clienteDTO;
 	}
-	// Metodo construir una cliente
+	// Metodo construir una bebida
 		private BebidaDTO construirBebidaDTO(Bebida bebida) {
 			BebidaDTO bebidaDTO = new BebidaDTO();
 			bebidaDTO.setBebidaId(bebida.getBebidaId());
@@ -109,7 +109,7 @@ public class ServiciosRest {
 			return bebidaDTO;
 		}
 
-	// Metodo construir una cliente
+	// Metodo construir una FacturaDTO
 	private FacturaDTO construirFacturaDTO(Factura factura) {
 		FacturaDTO facturaDTO = new FacturaDTO();
 		facturaDTO.setFacturaId(factura.getFacturaId());
@@ -124,9 +124,9 @@ public class ServiciosRest {
 	 * @return
 	 */
 	@GET
-	@Path("/eliminarVehiculo")
+	@Path("/eliminarBebida")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ResultadoDTO eliminarVehiculo(@QueryParam("idBebida") int idBebida) {
+	public ResultadoDTO eliminarBebida(@QueryParam("idBebida") int idBebida) {
 		return consultasBean.eliminarBebida(idBebida);
 	}
 
