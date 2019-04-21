@@ -43,4 +43,6 @@ public interface IConsultasBeanLocal {
 	public ResultadoDTO crearFacturasDetalles(FacturaDetalleDTO facturaDetalleDTO);
 	public ResultadoDTO eliminarFacturasDetalles(String detalleId);
 	
+	
+	
 }

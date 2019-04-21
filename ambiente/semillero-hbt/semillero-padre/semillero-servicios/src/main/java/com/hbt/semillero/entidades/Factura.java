@@ -1,5 +1,7 @@
 package com.hbt.semillero.entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
  * Mapeo de la entidad Factura
@@ -19,11 +22,12 @@ import javax.persistence.Table;
 public class Factura {
 
 	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ")
+    @SequenceGenerator(sequenceName = "SEQ_COMUN", allocationSize = 1, name = "SEQ")
 	@Column(name = "factura_id")	
 	private int facturaId;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	

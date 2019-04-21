@@ -1,10 +1,13 @@
 package com.hbt.semillero.entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
  * Mapeo de la entidad Cliente
@@ -16,7 +19,8 @@ import javax.persistence.Table;
 public class Cliente {
 	
 	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "SEQ_COMUN", allocationSize = 1, name = "CUST_SEQ")
 	@Column(name = "cliente_id")	
 	private int clienteId;
 	

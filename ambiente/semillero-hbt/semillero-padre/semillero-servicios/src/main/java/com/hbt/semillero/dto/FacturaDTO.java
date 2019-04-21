@@ -25,12 +25,11 @@ public class FacturaDTO implements Serializable {
 	/**
 	 * constructor
 	 */
-	public FacturaDTO(int facturaId, Cliente cliente, int iva, int number) {
-		super();
-		this.facturaId = facturaId;
-		this.cliente = cliente;
-		this.iva = iva;
-		this.total = number;
+	public FacturaDTO(Cliente cliente, int iva, int total) {
+			super();
+			this.cliente = cliente;
+			this.iva = iva;
+			this.total = total;
 	}
 
 	/**
@@ -40,6 +39,7 @@ public class FacturaDTO implements Serializable {
 		return facturaId;
 	}
 
+	
 	/**
 	 * @return the total
 	 */
@@ -60,6 +60,10 @@ public class FacturaDTO implements Serializable {
 	public void setFacturaId(int facturaId) {
 		this.facturaId = facturaId;
 	}
+
+	
+
+	
 
 	/**
 	 * @return the cliente

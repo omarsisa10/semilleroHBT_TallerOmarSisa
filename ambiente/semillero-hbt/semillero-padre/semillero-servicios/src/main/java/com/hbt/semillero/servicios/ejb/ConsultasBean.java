@@ -135,6 +135,8 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		return new ResultadoDTO(true, "factura Creado de forma exitosa");
 	}
 	
+	
+	
 	/**
 	 * metodo asgignar atributos a una bebida crear una bebida
 	 * @param bebidaDTO
@@ -176,16 +178,20 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	}
 	
 	/**
-	 * metodo asgignar atributos a una Factura
-	 * @param bebidaDTO
+	 * metodo asgignar atributos a una Factura	 
 	 * @return
 	 */
 	private Factura asignarAtributosFactura(FacturaDTO facturaDTO) {
 		Factura factura = new Factura();
 		factura.setFacturaId(facturaDTO.getFacturaId());
 		factura.setIva(facturaDTO.getIva());
-		factura.setTotal(facturaDTO.getTotal());
-		factura.setCliente(facturaDTO.getCliente());
+		factura.setTotal(facturaDTO.getTotal());			
+		List<Cliente> clientes = entityManager.createQuery("Select cli from Cliente cli where cli.clienteId=:clienteId ")
+				.setParameter("clienteId", facturaDTO.getCliente().getClienteID()).getResultList();
+		if (clientes.size() == 1) {
+			factura.setCliente(clientes.get(0));
+		}
+	
 		return factura;
 	}
 /**

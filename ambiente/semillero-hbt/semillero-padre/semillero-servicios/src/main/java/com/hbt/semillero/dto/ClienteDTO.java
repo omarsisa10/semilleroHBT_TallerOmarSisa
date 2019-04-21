@@ -35,6 +35,11 @@ public class ClienteDTO  implements Serializable {
 		this.clienteId = clienteId;
 		this.clienteNombre = clienteNombre;
 	}
+	
+	public ClienteDTO(String clienteNombre) {
+		super();
+		this.clienteNombre = clienteNombre;
+	}
 	/**
 	 * constructor
 	 */

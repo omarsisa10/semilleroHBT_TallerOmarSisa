@@ -168,6 +168,10 @@ public class ServiciosRest {
 	public ResultadoDTO crearFactura(FacturaDTO facturaDTO) {
 		return consultasBean.crearFacturas(facturaDTO);
 	}
+	
+	
+	
+	
 	/**
 	 * metodo para crear Facturadetalle
 	 * @param bebidaDTO
