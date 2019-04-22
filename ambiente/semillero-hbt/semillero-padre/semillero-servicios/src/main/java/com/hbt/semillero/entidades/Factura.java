@@ -27,7 +27,7 @@ public class Factura {
 	@Column(name = "factura_id")	
 	private int facturaId;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
@@ -37,36 +37,62 @@ public class Factura {
 	@Column(name = "total")
 	private int total;
 	// GETTERS Y SETTERS *******
+
+	/**
+	 * @return the facturaId
+	 */
 	public int getFacturaId() {
 		return facturaId;
 	}
 
+	/**
+	 * @param facturaId the facturaId to set
+	 */
 	public void setFacturaId(int facturaId) {
 		this.facturaId = facturaId;
 	}
 
+	/**
+	 * @return the cliente
+	 */
 	public Cliente getCliente() {
 		return cliente;
 	}
 
+	/**
+	 * @param cliente the cliente to set
+	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
+	/**
+	 * @return the iva
+	 */
 	public int getIva() {
 		return iva;
 	}
 
+	/**
+	 * @param iva the iva to set
+	 */
 	public void setIva(int iva) {
 		this.iva = iva;
 	}
 
+	/**
+	 * @return the total
+	 */
 	public int getTotal() {
 		return total;
 	}
 
+	/**
+	 * @param total the total to set
+	 */
 	public void setTotal(int total) {
 		this.total = total;
 	}
+	
 	
 }

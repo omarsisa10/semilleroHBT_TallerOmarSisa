@@ -14,40 +14,48 @@ public class ClienteDTO  implements Serializable {
 	private int clienteId;
 	private String  clienteNombre;
 	
-	// GETTERS Y SETTERS *******	
-	public int getClienteId() {
-		return clienteId;
-	}
-	public void setClienteId(int clienteId) {
-		this.clienteId = clienteId;
-	}
-	public String getClienteNombre() {
-		return clienteNombre;
-	}
-	public void setClienteNombre(String clienteNombre) {
-		this.clienteNombre = clienteNombre;
-	}
-	/**
-	 * constructor
-	 */
-	public ClienteDTO(int clienteId, String clienteNombre) {
+	
+
+	public ClienteDTO() {
 		super();
-		this.clienteId = clienteId;
-		this.clienteNombre = clienteNombre;
 	}
+	
 	
 	public ClienteDTO(String clienteNombre) {
 		super();
 		this.clienteNombre = clienteNombre;
 	}
-	/**
-	 * constructor
-	 */
-	public ClienteDTO() {
-		super();
-	}
 
+
+	// GETTERS Y SETTERS *******	
+	/**
+	 * @return the clienteId
+	 */
+	public int getClienteId() {
+		return clienteId;
+	}
+	/**
+	 * @param clienteId the clienteId to set
+	 */
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
+	}
+	/**
+	 * @return the clienteNombre
+	 */
+	public String getClienteNombre() {
+		return clienteNombre;
+	}
+	/**
+	 * @param clienteNombre the clienteNombre to set
+	 */
+	public void setClienteNombre(String clienteNombre) {
+		this.clienteNombre = clienteNombre;
+	}
 	
+	
+	
+
 	
 
 

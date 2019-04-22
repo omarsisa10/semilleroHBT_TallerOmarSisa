@@ -28,18 +28,30 @@ public class Cliente {
 	private String clienteNombre;
 
 	// GETTERS Y SETTERS *******
-	public int getClienteID() {
+	/**
+	 * @return the clienteId
+	 */
+	public int getClienteId() {
 		return clienteId;
 	}
 
-	public void setClienteID(int clienteID) {
-		this.clienteId = clienteID;
+	/**
+	 * @param clienteId the clienteId to set
+	 */
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
 	}
 
+	/**
+	 * @return the clienteNombre
+	 */
 	public String getClienteNombre() {
 		return clienteNombre;
 	}
 
+	/**
+	 * @param clienteNombre the clienteNombre to set
+	 */
 	public void setClienteNombre(String clienteNombre) {
 		this.clienteNombre = clienteNombre;
 	}

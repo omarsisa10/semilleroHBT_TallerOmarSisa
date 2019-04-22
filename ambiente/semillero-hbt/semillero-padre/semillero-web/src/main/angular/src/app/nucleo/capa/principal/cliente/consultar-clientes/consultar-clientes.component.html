@@ -1,0 +1,22 @@
+<h2>{{header}}</h2>
+<!-- <p>{{ nombre | uppercase }}</p>
+<p>{{ apellidos | uppercase }}</p>
+<p>{{ tipoIdentificacion | uppercase }}</p> -->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="wrapper">
+
+    <table border="1">
+    <tr>
+      <td *ngFor="let columna of columnas"><strong>{{columna|lowercase}}</strong></td>
+    </tr>
+
+    <tr>
+      <td>1 </td>
+      <td>omar </td>
+      <td><input type="button" value="editar"><input type="button" value="borrar"> </td>
+    </tr>
+    </table>
+</div>

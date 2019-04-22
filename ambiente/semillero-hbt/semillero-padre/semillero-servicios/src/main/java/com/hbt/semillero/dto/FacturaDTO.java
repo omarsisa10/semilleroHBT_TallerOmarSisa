@@ -61,9 +61,6 @@ public class FacturaDTO implements Serializable {
 		this.facturaId = facturaId;
 	}
 
-	
-
-	
 
 	/**
 	 * @return the cliente

@@ -1,0 +1,55 @@
+<h2>{{ header }}</h2>
+<!-- <p>{{ nombre | uppercase }}</p>
+<p>{{ apellidos | uppercase }}</p>
+<p>{{ tipoIdentificacion | uppercase }}</p> -->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<div class="wrapper">
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="nidentificacion">Precio Unitario</label>
+            <input id="precio" class="form-control" type="text" placeholder="Precio Unitario"
+               name="precio" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="nidentificacion">Placa</label>
+            <input id="placa" class="form-control" type="text" placeholder="Placa del vehiculo"
+               name="placa" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="linea">Plato</label>
+            <br>
+            <select class="form-control"  name="plato"
+                ng-init="options[1].value" >
+                <option value="1">plato1</option>
+                <option value="2">plato2</option>
+                <option value="3">plato3</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="linea">Bebida</label>
+            <br>
+            <select class="form-control"  name="bebida"
+                ng-init="options[1].value" >
+                <option value="1">Bebida1</option>
+                <option value="2">Bebida2</option>
+                <option value="3">Bebida3</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="linea">Factura</label>
+            <br>
+            <select class="form-control"  name="factura"
+                ng-init="options[1].value" >
+                <option value="1">factura1</option>
+                <option value="2">factura2</option>
+                <option value="3">factura3</option>
+            </select>
+        </div>
+</div>

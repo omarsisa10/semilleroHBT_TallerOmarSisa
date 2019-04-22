@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +17,4 @@ export class ServiceFacturaService {
   listarClientes() {
       return this._http.get<any>(this.url + 'consultarClientes');
   }
-
 }

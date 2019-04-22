@@ -82,7 +82,6 @@ public class PlatoDTO implements Serializable{
 		this.platoDescripcion = platoDescripcion;
 	}
 
-	
-	
+
 
 }

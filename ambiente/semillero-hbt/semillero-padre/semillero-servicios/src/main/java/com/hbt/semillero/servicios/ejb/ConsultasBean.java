@@ -105,6 +105,10 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		return new ResultadoDTO(true, "facturaDetalle Creada de forma exitosa");
 	}
 	
+
+	
+	
+	
 	/**
 	 * metodo para crear clientes
 	 */
@@ -158,7 +162,7 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	 */
 	private Cliente asignarAtributosCliente(ClienteDTO clienteDTO) {
 		Cliente cliente = new Cliente();
-		cliente.setClienteID(clienteDTO.getClienteId());
+		cliente.setClienteId(clienteDTO.getClienteId());
 		cliente.setClienteNombre(clienteDTO.getClienteNombre());				
 		return cliente;
 	}
@@ -170,10 +174,27 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	private FacturaDetalle asignarAtributosFacturasDetalles(FacturaDetalleDTO facturaDetalleDTO) {
 		FacturaDetalle facturaDetalle = new FacturaDetalle();
 		facturaDetalle.setDetalleId(facturaDetalleDTO.getDetalleId());
-		facturaDetalle.setFactura(facturaDetalleDTO.getFactura());
-		facturaDetalle.setPlato(facturaDetalleDTO.getPlato());
-		facturaDetalle.setBebida(facturaDetalleDTO.getBebida());
 		facturaDetalle.setPrecioUnitario(facturaDetalleDTO.getPrecioUnitario());
+		
+		List<Factura> facturas = entityManager.createQuery("Select fac from Factura fac where fac.facturaId=:facturaId ")
+				.setParameter("facturaId", facturaDetalleDTO.getFactura().getFacturaId()).getResultList();
+		if (facturas.size() == 1) {
+			facturaDetalle.setFactura(facturas.get(0));
+		}
+		
+		List<Plato> platos = entityManager.createQuery("Select pla from Plato pla where pla.platoId=:platoId ")
+				.setParameter("platoId", facturaDetalleDTO.getPlato().getPlatoId()).getResultList();
+		if (platos.size() == 1) {
+			facturaDetalle.setPlato(platos.get(0));
+		}
+		
+		List<Bebida> bebidas = entityManager.createQuery("Select beb from Bebida beb where beb.bebidaId=:bebidaId ")
+				.setParameter("bebidaId", facturaDetalleDTO.getBebida().getBebidaId()).getResultList();
+		if (bebidas.size() == 1) {
+			facturaDetalle.setBebida(bebidas.get(0));
+		}
+				
+
 		return facturaDetalle;
 	}
 	
@@ -187,7 +208,7 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		factura.setIva(facturaDTO.getIva());
 		factura.setTotal(facturaDTO.getTotal());			
 		List<Cliente> clientes = entityManager.createQuery("Select cli from Cliente cli where cli.clienteId=:clienteId ")
-				.setParameter("clienteId", facturaDTO.getCliente().getClienteID()).getResultList();
+				.setParameter("clienteId", facturaDTO.getCliente().getClienteId()).getResultList();
 		if (clientes.size() == 1) {
 			factura.setCliente(clientes.get(0));
 		}

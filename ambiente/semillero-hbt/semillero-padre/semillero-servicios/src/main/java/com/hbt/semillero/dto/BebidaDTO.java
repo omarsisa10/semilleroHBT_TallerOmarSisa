@@ -30,24 +30,41 @@ public class BebidaDTO implements Serializable{
 		this.precio = precio;
 	}
 	// GETTERS Y SETTERS *******
+	/**
+	 * @return the bebidaId
+	 */
 	public int getBebidaId() {
 		return bebidaId;
 	}
+	/**
+	 * @param bebidaId the bebidaId to set
+	 */
 	public void setBebidaId(int bebidaId) {
 		this.bebidaId = bebidaId;
 	}
+	/**
+	 * @return the bebidaNombre
+	 */
 	public String getBebidaNombre() {
 		return bebidaNombre;
 	}
+	/**
+	 * @param bebidaNombre the bebidaNombre to set
+	 */
 	public void setBebidaNombre(String bebidaNombre) {
 		this.bebidaNombre = bebidaNombre;
 	}
+	/**
+	 * @return the precio
+	 */
 	public int getPrecio() {
 		return precio;
 	}
+	/**
+	 * @param precio the precio to set
+	 */
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 	
-
 }

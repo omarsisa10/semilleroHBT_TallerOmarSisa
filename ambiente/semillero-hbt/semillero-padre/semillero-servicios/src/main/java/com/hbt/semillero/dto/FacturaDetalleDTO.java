@@ -35,6 +35,15 @@ public class FacturaDetalleDTO implements Serializable {
 		this.bebida = bebida;
 		this.precioUnitario = precioUnitario;
 	}
+	
+	public FacturaDetalleDTO(Factura factura, Plato plato, Bebida bebida, int precioUnitario) {
+		super();
+		this.factura = factura;
+		this.plato = plato;
+		this.bebida = bebida;
+		this.precioUnitario = precioUnitario;
+	}
+
 	/**
 	 * constructor sin parametros
 	 */

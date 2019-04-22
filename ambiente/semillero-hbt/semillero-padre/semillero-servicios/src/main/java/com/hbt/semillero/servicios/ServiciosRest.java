@@ -71,7 +71,7 @@ public class ServiciosRest {
  * @return
  */
 	@GET
-	@Path("/consultarBebida")
+	@Path("/consultarBebidas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<BebidaDTO> consultarBebida() {
 		List<Bebida> bebidas = consultasBean.consultarBebidas();
@@ -134,7 +134,7 @@ public class ServiciosRest {
 				return retorno;
 			}	
 	/**
-	 * metodo para crear Bebidas
+	 * metodo para crear Bebidas/crearFactura
 	 * @param bebidaDTO
 	 * @return
 	 */
@@ -187,7 +187,7 @@ public class ServiciosRest {
 	// Metodo construir un cliente
 	private ClienteDTO construirClienteDTO(Cliente cliente) {
 		ClienteDTO clienteDTO = new ClienteDTO();
-		clienteDTO.setClienteId(cliente.getClienteID());
+		clienteDTO.setClienteId(cliente.getClienteId());
 		clienteDTO.setClienteNombre(cliente.getClienteNombre());
 		return clienteDTO;
 	}
