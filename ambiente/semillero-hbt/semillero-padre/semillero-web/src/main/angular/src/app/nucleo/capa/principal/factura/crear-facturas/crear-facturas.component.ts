@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { facturaDTO } from '../../apoyo/modelo/facturaDTO';
 import { facturaDetalleDTO } from '../../apoyo/modelo/facturaDetalleDTO';
+import { ServiceFacturasService } from 'src/app/services/facturas/service-facturas.service';
 
 @Component({
   selector: 'app-crear-facturas',
@@ -10,7 +11,7 @@ export class CrearFacturasComponent implements OnInit {
   public header: string = 'Crear Facturas';
   public facturaDetalle: facturaDetalleDTO= null; 
 
-  constructor() { }
+  constructor(private ServiceFacturasService: ServiceFacturasService) { }
 
   ngOnInit() {
     this.facturaDetalle = {
@@ -22,7 +23,24 @@ export class CrearFacturasComponent implements OnInit {
     }
   }
   guardar(){
-    debugger
+    var facturaPost = this.facturaDetalle;
+    this.ServiceFacturasService.crearFacturas(facturaPost).subscribe(
+      vehiculoCreado => {
+        this.limpiarFactura();
+      },
+      error => {
+        console.log(error);
+      }
+    );  
+  }
+  public limpiarFactura() {
+    this.facturaDetalle = {
+      detalleId:'0',
+      factura:'',
+      plato: '',
+      bebida: '',
+      precioUnitario:0
+    }
   }
 
 }

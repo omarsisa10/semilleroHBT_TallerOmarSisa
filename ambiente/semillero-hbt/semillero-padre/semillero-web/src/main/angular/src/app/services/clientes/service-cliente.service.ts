@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { clienteDTO } from 'src/app/nucleo/capa/principal/apoyo/modelo/clienteDTO';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class ServiceClienteService {
   listarClientes() {
       return this._http.get<any>(this.url + 'consultarClientes');
   }
+
   crearClientes(cliente: any) {
     return this._http.post<any>(this.url + 'crearCliente',{body:cliente});
 }

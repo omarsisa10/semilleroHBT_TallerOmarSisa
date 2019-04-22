@@ -112,6 +112,16 @@ public class FacturaDetalleDTO implements Serializable {
 	public void setPrecioUnitario(int precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
-	
+	/**
+	 * calcular el iva siempre y cuando el iva sea del 5%
+	 * @return valor total de la factura con iva
+	 */
+	public double calcularIva() {
+		int valorTotal=0;
+		valorTotal= this.plato.getPrecio()+ this.bebida.getPrecio()+this.precioUnitario;
+		double valorTotalConIva= valorTotal+(valorTotal*0.5);
+		double incrementoIva=valorTotal*0.5;
+		return valorTotalConIva;		
+	}
 
 }
