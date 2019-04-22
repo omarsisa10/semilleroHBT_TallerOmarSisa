@@ -21,5 +21,8 @@ export class ServiceClienteService {
   listarClientes() {
       return this._http.get<any>(this.url + 'consultarClientes');
   }
+  crearClientes(cliente: any) {
+    return this._http.post<any>(this.url + 'crearCliente',{body:cliente});
+}
 
 }

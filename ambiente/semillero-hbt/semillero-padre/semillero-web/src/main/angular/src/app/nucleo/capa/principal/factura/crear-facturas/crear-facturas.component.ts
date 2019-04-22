@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { facturaDTO } from '../../apoyo/modelo/facturaDTO';
+import { facturaDetalleDTO } from '../../apoyo/modelo/facturaDetalleDTO';
 
 @Component({
   selector: 'app-crear-facturas',
@@ -7,16 +8,17 @@ import { facturaDTO } from '../../apoyo/modelo/facturaDTO';
 })
 export class CrearFacturasComponent implements OnInit {
   public header: string = 'Crear Facturas';
-  public factura: facturaDTO= null; 
+  public facturaDetalle: facturaDetalleDTO= null; 
 
   constructor() { }
 
   ngOnInit() {
-    this.factura = {
-      facturaId:0,
-      cliente: {clienteId:0, clienteNombre:''},
-      iva: 0,
-      total:0
+    this.facturaDetalle = {
+      detalleId:'0',
+      factura:'',
+      plato: '',
+      bebida: '',
+      precioUnitario:0
     }
   }
   guardar(){

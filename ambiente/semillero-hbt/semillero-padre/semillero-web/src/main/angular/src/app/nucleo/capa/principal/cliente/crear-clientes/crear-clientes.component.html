@@ -11,9 +11,11 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="nombre">Nombres</label>
-            <input id="nombre" class="form-control" type="text" placeholder="Nombres" 
+            <input id="nombre" class="form-control" type="text" placeholder="Nombres"  [(ngModel)]="cliente.clienteNombre" 
                 name="nombre" />
         </div>     
     </div>
-
+    <div class="form-group col-md-6"> 
+        <input value="guardar" type="button" (click)="guardar()">
+    </div>
 </div>
