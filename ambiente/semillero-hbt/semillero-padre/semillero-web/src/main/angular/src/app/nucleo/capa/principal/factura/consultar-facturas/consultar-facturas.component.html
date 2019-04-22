@@ -15,14 +15,14 @@
       <td *ngFor="let columna of columnas"><strong>{{columna|lowercase}}</strong></td>
     </tr>
 
-    <tr>
-      <td>omar </td>
-      <td>sisa </td>
-      <td>1052405210 </td>
-      <td>cc </td>
-      <td>3202559317 </td>
-      <td>23 </td>
-      <td>1 </td>
+    <tr *ngFor="let factura of listaFacturas">
+      <td>{{factura.precioUnitario}} </td>
+      <td>{{factura.plato.platoNombre}} </td>
+      <td>{{factura.bebida.bebidaNombre}}</td>
+      <td>{{factura.factura.facturaId}} </td>
+      <td>{{factura.factura.iva}} </td>
+      <td>{{factura.factura.total}} </td>
+      <td>{{factura.factura.cliente.clienteNombre}}</td>
       <td><input type="button" value="editar"><input type="button" value="borrar">
  </td>
     </tr>

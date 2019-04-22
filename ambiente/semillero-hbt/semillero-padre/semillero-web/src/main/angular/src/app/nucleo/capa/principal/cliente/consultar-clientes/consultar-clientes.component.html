@@ -13,10 +13,11 @@
       <td *ngFor="let columna of columnas"><strong>{{columna|lowercase}}</strong></td>
     </tr>
 
-    <tr>
-      <td>1 </td>
-      <td>omar </td>
+    <tr *ngFor="let cliente of listaClientes">
+      <td >{{cliente.clienteId}}</td>
+      <td >{{cliente.clienteNombre}}</td>
       <td><input type="button" value="editar"><input type="button" value="borrar"> </td>
     </tr>
     </table>
 </div>
+

@@ -134,7 +134,7 @@ public class ServiciosRest {
 				return retorno;
 			}	
 	/**
-	 * metodo para crear Bebidas/crearFactura
+	 * metodo para crear Bebidas
 	 * @param bebidaDTO
 	 * @return
 	 */
@@ -241,7 +241,7 @@ public class ServiciosRest {
 		return consultasBean.eliminarBebida(idBebida);
 	}
 	/**
-	 * Permite eliminar un bebida por Id.
+	 * Permite eliminar una factura detalle
 	 * @param idBebida
 	 * @return
 	 */

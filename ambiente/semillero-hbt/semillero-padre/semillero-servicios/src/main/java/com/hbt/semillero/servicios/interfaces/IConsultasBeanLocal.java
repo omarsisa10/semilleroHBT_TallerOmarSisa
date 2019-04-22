@@ -23,7 +23,7 @@ import com.hbt.semillero.entidades.Plato;
 public interface IConsultasBeanLocal {
 
 	/**
-	 * metodos a para realizar las consultas
+	 * metodos  para realizar las consultas
 	 * @return
 	 */
 	public List<Cliente> consultarClientes();

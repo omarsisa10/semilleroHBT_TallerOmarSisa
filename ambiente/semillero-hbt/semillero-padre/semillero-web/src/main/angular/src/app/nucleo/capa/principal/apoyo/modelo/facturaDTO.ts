@@ -5,5 +5,4 @@ export interface facturaDTO {
     cliente: clienteDTO;
     iva: number;
     total: number;
-
 }

@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
+import { clienteDTO } from 'src/app/nucleo/capa/principal/apoyo/modelo/clienteDTO';
 import { HttpClient } from '@angular/common/http';
-//PRUEBAS 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceFacturaService {
+export class ServiceClienteService {
+  
+  public cliente: clienteDTO;
+  public clientes: clienteDTO[];
 
   public url: string;
 
@@ -18,4 +21,5 @@ export class ServiceFacturaService {
   listarClientes() {
       return this._http.get<any>(this.url + 'consultarClientes');
   }
+
 }

@@ -15,12 +15,16 @@ public class ClienteDTO  implements Serializable {
 	private String  clienteNombre;
 	
 	
-
+	/**
+	 * constructor
+	 */
 	public ClienteDTO() {
 		super();
 	}
 	
-	
+	/**
+	 * constructor
+	 */
 	public ClienteDTO(String clienteNombre) {
 		super();
 		this.clienteNombre = clienteNombre;
@@ -52,11 +56,5 @@ public class ClienteDTO  implements Serializable {
 	public void setClienteNombre(String clienteNombre) {
 		this.clienteNombre = clienteNombre;
 	}
-	
-	
-	
-
-	
-
 
 }

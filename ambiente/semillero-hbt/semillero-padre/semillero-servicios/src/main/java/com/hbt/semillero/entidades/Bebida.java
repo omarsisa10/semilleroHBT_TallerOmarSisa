@@ -28,6 +28,8 @@ public class Bebida {
 	
 	@Column(name = "precio")
 	private int precio;
+	
+	// GETTERS Y SETTERS **************
 
 	/**
 	 * @return the bebidaId
@@ -71,7 +73,7 @@ public class Bebida {
 		this.precio = precio;
 	}
 	
-// GETTERS Y SETTERS **************
+
 	
 	
 	

@@ -30,7 +30,7 @@ public class ConsultasBean implements IConsultasBeanLocal{
 	@PersistenceContext
 	private EntityManager entityManager;
 /**
- * metodo que consulta todos los registros de la base de datos	
+ * metodo que consulta todos los registros  de la tabla cliente de la base de datos	
  */
 	@Override
 	public List<Cliente> consultarClientes() {
@@ -228,7 +228,7 @@ public class ConsultasBean implements IConsultasBeanLocal{
 		}
 	}
 	/**
-	 * metodo para eliminar una bebida ingresando por parametro el id detalleFactura
+	 * metodo para eliminar una factura ingresando por parametro el id detalleFactura
 	 */	
 		@Override
 		public ResultadoDTO eliminarFacturasDetalles(String detalleId) {
